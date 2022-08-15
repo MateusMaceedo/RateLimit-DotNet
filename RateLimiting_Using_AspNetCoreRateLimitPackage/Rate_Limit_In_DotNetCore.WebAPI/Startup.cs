@@ -20,47 +20,21 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+
+            services.Configure<ClientRateLimitOptions>(Configuration.GetSection("ClientRateLimiting"));
+            services.Configure<ClientRateLimitPolicies>(Configuration.GetSection("ClientRateLimitPolicies"));
+
+            services.AddInMemoryRateLimiting();
+
             services.AddMemoryCache();
-
-            services.Configure<IpRateLimitOptions>(options =>
-            {
-                options.EnableEndpointRateLimiting = true;
-                options.StackBlockedRequests = false;
-                options.HttpStatusCode = 429;
-                options.RealIpHeader = "X-Real-IP";
-                options.ClientIdHeader = "X-ClientId";
-                options.GeneralRules = new List<RateLimitRule>
-                    {
-                        new RateLimitRule
-                        {
-                            Endpoint = "GET:/employee/getAllEmployees",
-                            Period = "10s",
-                            Limit = 2,
-                        }
-                    };
-
-
-                //options.EnableEndpointRateLimiting = true;
-                //options.StackBlockedRequests = false;
-                //options.HttpStatusCode = 429;
-                //options.ClientIdHeader = "Client-Id";
-                //options.GeneralRules = new List<RateLimitRule>
-                //{
-                //new RateLimitRule
-                //{
-                //Endpoint = "*",
-                //Period = "10s",
-                //Limit = 2
-                //}
-                //};
-
-            });
 
             services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
-            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
             services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
-            services.AddInMemoryRateLimiting();
+
 
             services
                 .AddSwaggerGen(options =>
