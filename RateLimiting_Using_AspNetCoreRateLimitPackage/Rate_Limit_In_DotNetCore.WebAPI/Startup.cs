@@ -32,9 +32,11 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
 
             services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
-            services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
+            //services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
             services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
 
+            // configure the resolvers
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             services
                 .AddSwaggerGen(options =>
@@ -51,14 +53,14 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseIpRateLimiting();
+
+            app.UseClientRateLimiting();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseIpRateLimiting();
-
-            app.UseClientRateLimiting();
 
             app.UseHttpsRedirection();
 
