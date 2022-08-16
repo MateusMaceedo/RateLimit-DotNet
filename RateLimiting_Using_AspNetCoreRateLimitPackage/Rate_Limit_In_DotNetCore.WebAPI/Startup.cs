@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Rate_Limit_In_DotNetCore.WebAPI.Config;
 using System.Collections.Generic;
 
 namespace Rate_Limit_In_DotNetCore.WebAPI
@@ -32,8 +33,10 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
 
             services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
-            //services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
+            services.AddSingleton<IRateLimitConfiguration, CustomRateLimitConfiguration>();
             services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+
+            RateLimitConfig.ConfigurarRateLimit(services);
 
             // configure the resolvers
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
@@ -44,7 +47,7 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
                     options.SwaggerDoc("v1", new OpenApiInfo
                     {
                         Version = "v1",
-                        Title = "Sample API",
+                        Title = "Poc Rate Limit",
                         Description = "Sample API for Rate Limiting",
                     });
                 })

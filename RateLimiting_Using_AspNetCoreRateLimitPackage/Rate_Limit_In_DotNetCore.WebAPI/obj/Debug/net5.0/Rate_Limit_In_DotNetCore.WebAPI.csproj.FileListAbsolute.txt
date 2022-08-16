@@ -1,4 +1,3 @@
-C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\bin\Debug\net5.0\appsettings.json
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\bin\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.exe
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\bin\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.deps.json
@@ -43,3 +42,5 @@ C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimit
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\obj\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.xml
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\obj\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.pdb
 C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\obj\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.genruntimeconfig.cache
+C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\bin\Debug\net5.0\appsettings.Regex.json
+C:\Users\mateu\@Projetos\RateLimit-DotNet\RateLimiting_Using_AspNetCoreRateLimitPackage\Rate_Limit_In_DotNetCore.WebAPI\obj\Debug\net5.0\Rate_Limit_In_DotNetCore.WebAPI.csproj.AssemblyReference.cache
