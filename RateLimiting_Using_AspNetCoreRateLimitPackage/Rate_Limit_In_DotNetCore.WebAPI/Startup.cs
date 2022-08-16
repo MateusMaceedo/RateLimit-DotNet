@@ -72,7 +72,7 @@ namespace Rate_Limit_In_DotNetCore.WebAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Poc Rate Limit");
             });
 
             app.UseEndpoints(endpoints =>
